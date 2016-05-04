@@ -1,0 +1,4 @@
+bower_component/ 
+test/ 
+dist/ 
+node_module/

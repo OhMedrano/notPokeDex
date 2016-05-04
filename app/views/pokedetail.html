@@ -1,0 +1,573 @@
+<div id=''class=''ng-init='findOne()'>
+
+
+
+			<!-- DESKTOP -->
+
+			<div id=''class='col-md-12 col-lg-12 hidden-sm hidden-xs' style='height:85vh;
+																			border:1px solid black;'>
+
+				<div id=''class='col-md-12'style='padding:1%'>
+
+
+				</div>
+				<div id=''class='col-md-10 col-md-offset-1 pokeIndexMain'style='
+				border:3px solid black;
+				height:78vh;
+				border-radius:1%;
+				position:relative;
+				padding:0;
+				'>
+					<div id=''class=''style='height:100%;
+						border:3px solid white;
+						border-radius:1%;
+						padding:1%;
+
+					'>
+					
+					<div id=''class='col-md-12' style='height:100%;'>
+						<div id=''class='col-md-4'style='border-bottom:4px solid black;height:50%;'>
+							<div id=''class=''style='height:100%;
+								width:100%;
+								background:url(http://159.203.107.182:3000/img/PKMN/{{PKMN.id}}.png);
+								background-repeat:no-repeat;
+								background-size:contain;
+							'>
+							</div>
+							<div id=''class='col-md-6'style='border:1px none;padding:3%;'>
+							
+						</div>
+							<div ng-click='whichDisplay = 0' id=''class='col-md-12 bioData'style='border:3px solid black;height:20%;margin-bottom:15px;padding:0;border-radius:3%;cursor:pointer;'>
+								<div id=''class=''style='border:3px solid white;height:100%;border-radius:3%;'>
+								<div id=''class='col-md-12'style=''>
+
+								</div>
+								<div id=''class='col-md-12 righteous'style='text-align:center; font-size:30px;'>
+							<h2>Dex Entry</h2>
+							</div>
+							</div>
+						</div>
+						<div ng-click='whichDisplay = 1' id=''class='col-md-12 statData'style='border:3px solid black;height:20%;margin-bottom:15px;padding:0;border-radius:3%;cursor:pointer;'>
+							<div id=''class=''style='border:3px solid white;height:100%;'>
+								<div id=''class='col-md-12'style=''>
+
+								</div>
+								<div id=''class='col-md-12 righteous'style='text-align:center; font-size:30px;'>
+							<h2>Stats</h2>
+							</div>
+
+							</div>
+						</div>
+						<div ng-click='whichDisplay = 2' id=''class='col-md-12 moveData'style='border:3px solid black;height:20%;margin-bottom:15px;padding:0;border-radius:3%;cursor:pointer;'>
+							<div id=''class=''style='border:3px solid white;height:100%;border-radius:3%;'>
+							<div id=''class='col-md-12'style=''>
+
+								</div>
+								<div id=''class='col-md-12 righteous'style='text-align:center; font-size:30px;'>
+							<h2>Moves</h2>
+							</div>
+							</div>
+						</div>
+						<div ng-click='whichDisplay = 3' id=''class='col-md-12 etcData'style='border:3px solid black;height:20%;margin-bottom:15px;padding:0;border-radius:3%;cursor:pointer;'>
+							<div id=''class=''style='border:3px solid white;height:100%;border-radius:3%;'>
+
+
+							<div id=''class='col-md-12'style=''>
+
+								</div>
+								<div id=''class='col-md-12 righteous'style='text-align:center; font-size:30px;'>
+							<h2>Etc</h2>
+							</div>
+							</div>
+						</div>
+						</div>
+						<div id=''class=' righteous col-md-1 col-md-offset-1'style='border-bottom:3px solid black;padding:1%; font-size:30px;'>
+							#{{PKMN.id}}
+						</div>
+						<div id=''class='col-md-6 righteous  'style='border-bottom:3px solid black;padding:1%; font-size:30px;'>
+							{{PKMN.name | uppercase}}
+						</div>
+
+						
+							<div id=''class='col-md-6'style='padding:1%'>
+
+							</div>
+
+							<!-- ETC DATA AKA YELLOW PIKACHUTEXTURE LOOKING BUTTON -->
+
+
+							<!-- 
+								I am not entirely sure on how much information or what 
+								kind of information I want to display on here. 
+
+								The different names in different languages, work. 
+
+
+
+							 -->
+
+							<div ng-if='whichDisplay == 3'id='etcDisplay'class='col-md-7 col-md-offset-1 etcData displayData'style=''>
+								<div id=''class='innerDisplayData col-md-12'style=''>
+									<div id=''class='col-md-12 'style='border:3px solid black;border-radius:10px;background-color:white;padding:1%;'>
+										<div id=''class='col-md-12'style=''>
+											<div id=''class='col-md-4 righteous' style='border-bottom:3px solid black;'>
+												Names
+											</div>
+										</div>
+									<div ng-repeat='name in currentPKMN.names'id=''class='col-md-4'style='border:1px none; padding:1%;height:10vh;'>
+										<div id=''class='col-md-8'style='border:1px solid black;
+										height:100%;'>
+											<div class='col-md-12'style='
+																	padding:3%'>
+											</div>
+										<div id=''class='col-md-12 righteous'style='height:60%;
+										font-size:18px;'>
+											{{name.name}}
+										</div>
+										<div id=''class='col-md-12 righteous'style='padding:0;'>
+											<div id=''class='col-md-4 righteous'style='text-align:left;'>
+											In
+											</div>
+										<div id=''class='col-md-7 righteous ng-cloak'style=''>
+											{{name.language.name | changeLang}}
+										</div>
+
+
+									</div>
+									
+
+									</div>
+
+
+								</div>
+								{{whichDisplay}}
+
+
+							</div>
+						</div>
+						</div>
+						<!-- MOVES DATA AKA BLUE BUTTON -->
+
+
+
+						<!-- 
+								I gotta expand more on this section. Right now, the problem is that 
+								if the move is learnt through a machine, it shows the "At lvl" at 0.
+
+								Can't have that. 
+
+								Need to run an ng-if on it later to check the condition of the move_learn_method is either through a machine or a level.
+
+
+								I want to add more color on to this, so going to play around with patterns and styles until I get a good box icon.
+
+
+								Later I want to add a new api call for these moves that shows the details such as attack strength, accuracy, etc. 
+
+
+								
+
+
+						 -->
+
+						<div ng-if='whichDisplay == 2'id='moveDisplay'class='col-md-7 col-md-offset-1 moveData displayData'style=''>
+
+							<div id=''class='col-md-12 innerDisplayData'style=''>
+
+								<div id=''class='col-md-4'style='height:33%;padding:1%;'ng-repeat='moves in PKMN.moves'>
+									<div id=''class='col-md-10 col-md-offset-1 righteous'style='border:3px solid black;height:100%;background:white;border-radius:2%;padding:0;'>
+										<div id=''class='col-md-12'style='border:1px solid black;height:10%;'>
+										Learned thru  <span class='incon'>{{moves.version_group_details[0].move_learn_method.name}}</span>
+										</div>
+										<div id=''class='col-md-12 'style='border:1px solid black;height:65%;font-size:20px;text-align:center;'>
+										<div id=''class='col-md-12 'style='padding:15%'>
+
+										</div>
+										{{moves.move.name | uppercase}}
+
+										</div>
+										<div id=''class='col-md-12'style='border:1px solid black;height:25.5%'>
+										At lvl {{moves.version_group_details[0].level_learned_at}}
+
+										</div>
+									</div>
+
+
+								</div>
+							
+
+
+
+
+
+							</div>
+						</div>
+
+						<!-- BIO / DEX DATA AKA RED / PINK BUTTON -->
+
+
+						<div ng-if='whichDisplay == 0'id='bioDisplay'class='col-md-7 col-md-offset-1 bioData  displayData'style=''>
+							<div id=''class='col-md-12 innerDisplayData'style=''>
+
+								<div id=''class='col-md-12 incon'style='border:1px none;;border-radius:2%;font-size:20px;'>
+								
+
+								</div>
+								
+
+								<div id=''class='col-md-12 incon'style='border:4px solid black;
+																		background:white;
+																		border-radius:2%;
+																		font-size:20px;
+																		height:20vh;
+																		margin-bottom:10px;'
+									ng-repeat='entry in currentPKMN.flavor_text_entries'>
+										<div id=''class='col-md-12'style='padding:1%'>
+
+										</div>
+										<div id=''class='col-md-12'>
+										{{entry.flavor_text}}
+										</div>
+										<div id=''class='col-md-12'style='padding:1%'>
+										</div>
+										<div id=''class='col-md-6'style='border:1px solid black;padding:1%;'>
+											<div id=''class='col-md-12'style=''>
+											Language:
+												{{entry.language.name | changeLang}}
+											</div>
+										</div>
+										<div id=''class='col-md-6'style='border:1px solid black;padding:1%;'>
+										From version:
+												{{entry.version.name | uppercase}}
+										</div>
+
+									</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+							</div>
+						</div>
+
+
+						<!-- STATS DISPLAY AKA GREEN BUTTON -->
+
+						<div ng-if='whichDisplay == 1'id='statDisplay'class='col-md-7 col-md-offset-1 statData displayData'style=''>
+
+							<div id=''class='col-md-12 innerDisplayData'style=''>
+								<div id=''class='col-md-12'style='border:4px solid black;height:5vh;padding:0;border-radius:2%;'>
+									<div id=''class=''style='border:4px solid white;background:white;height:100%;padding:1%;border-radius:2%;'>
+							  		<div id=''class='col-md-3 righteous'style=''>Height (In meters): </div> <div id=''class='col-md-8 incon ng-cloak' style='text-align:right;font-size:19px;'>{{PKMN.height | weight}}</div>
+							  		</div>
+							  	</div>
+							  	<div id=''class='col-md-12'style='padding:1%;'>
+							  	</div>
+
+							  	<div id=''class='col-md-12'style='border:4px solid black;height:5vh;padding:0;border-radius:2%;'>
+							  		<div id=''class=''style='border:4px solid white;background:white;height:100%;padding:1%;border-radius:2%;'>
+							   			<div id=''class='col-md-5 righteous'style=''>Weight (In Kilograms): </div> <div id=''class='col-md-6 incon ng-cloak' style='text-align:right;font-size:19px;'>{{PKMN.weight | weight}}</div>
+							   		</div>
+							  	</div>
+							  	<div id=''class='col-md-12'style='padding:1%;'>
+							  	</div>
+
+							  	<div id=''class='col-md-12'style='border:4px solid black;height:5vh;padding:0;border-radius:2%;'>
+							  		<div id=''class=''style='border:4px solid white;background:white;height:100%;padding:1%;border-radius:2%;'>
+							   			<div id=''class='col-md-5 righteous'style=''>Type: </div> <div id=''class='col-md-2 incon'ng-repeat='type in PKMN.types' style='text-align:right;font-size:19px;float:right;'>{{type.type.name}}</div>
+							   		</div>
+							   		<div id=''class='col-md-12'style='padding:1%;'>
+							  	</div>
+
+							  	<div id=''class='col-md-12'style='border:4px solid black;height:5vh;padding:0;border-radius:2%;'>
+							  		<div id=''class=''style='border:4px solid white;background:white;height:100%;padding:1%;border-radius:2%;'>
+							   			<div id=''class='col-md-5 righteous'style=''>Abilties </div> <div id=''class='col-md-3 incon' ng-repeat='abil in PKMN.abilities' style='text-align:right;font-size:19px;'>{{abil.ability.name}}</div>
+							   		</div>
+							  	</div>
+							  	<div id=''class='col-md-12'style='padding:1%;'>
+							  	</div>
+
+							  	<div id=''class='col-md-12'style='border:4px solid black;height:5vh;padding:0;border-radius:2%;'>
+							  		<div id=''class=''style='border:4px solid white;background:white;height:100%;padding:1%;border-radius:2%;'>
+							   			<div id=''class='col-md-5 righteous'style=''>Growth rate: </div> <div id=''class='col-md-6 incon' style='text-align:right;font-size:19px;'>{{currentPKMN.growth_rate.name}}</div>
+							   		</div>
+							  	</div>
+							  	<div id=''class='col-md-12'style='padding:1%;'>
+							  	</div>
+
+							  	<div id=''class='col-md-12'style='border:4px solid black;height:25vh;padding:0;border-radius:2%;'>
+							  		<div id=''class=''style='border:4px solid white;background:white;height:100%;padding:1%;border-radius:2%;'>
+							   			<div id=''class='col-md-12 righteous'style=''>Base Stats </div> 
+
+							   			<div id=''class='col-md-12 incon'style='border-top:3px solid black;'>
+							   				<div id=''class='col-md-12'style='padding:1%'>
+
+							   				</div>
+							   				<div ng-repeat='stat in PKMN.stats'class='col-md-12'style='border-bottom:1px dashed black;margin-bottom:5px;font-size:17px;'>
+							   					<span class='col-md-3'>{{stat.stat.name | uppercase}}</span>
+
+							   					<span class='col-md-2'style='float:right;'>{{stat.base_stat}}</span>
+
+							   				</div>
+
+							   			</div>
+
+							   		</div>
+							  	</div>
+							  	</div>
+							</div>	
+						
+
+						</div>
+						</div>
+				
+
+
+					</div>
+				</div>
+						
+					
+
+
+					
+
+
+
+
+
+
+			</div>
+
+
+
+
+			<!-- MOBILE -->
+			<div id=''class='col-xs-12 col-sm-12 hidden-md hidden-lg' style='height:62vh;
+																			border:1px solid black;'>
+				<div id=''class='col-xs-12 col-sm-12'style='border:1px solid black;padding:0;'>
+						<div ng-click='whichDisplay = 0 'id=''class='col-xs-3 bioData righteous'style='text-align:center;font-size:14px;color:white;border:1px solid black;padding:1%;cursor:pointer;'>
+								Dex Entry
+						</div>
+						<div ng-click='whichDisplay = 1'id=''class='col-xs-3 statData righteous'style='text-align:center;font-size:14px;color:white;border:1px solid black;padding:1%;cursor:pointer;'>
+								Stats
+						</div>
+						<div ng-click='whichDisplay = 2'id=''class='col-xs-3 moveData righteous'style='text-align:center;font-size:14px;color:white;border:1px solid black;padding:1%;cursor:pointer;'>
+								Moves
+						</div>
+						<div ng-click='whichDisplay = 3'id=''class='col-xs-3 etcData righteous'style='text-align:center;font-size:14px;color:white;border:1px solid black;padding:1%;cursor:pointer;'>
+							Etc
+						</div>
+
+
+
+
+				</div>
+				<div id=''class='col-xs-12 pokeIndexMain righteous'style='border:3px solid black;height:90%;padding:0;'>
+					<div id=''class=''style='border:3px solid white;height:100%;'>
+							<div id=''class='col-xs-12'style='border-bottom:3px solid black;height:25%;padding:0;'>
+									<div id=''class='col-xs-5'style='float:left;border-right:2px solid black;height:100%;background:url(http://159.203.107.182:3000/img/PKMN/{{PKMN.id}}.png) no-repeat;background-size:99% 99%;'>
+
+									</div>
+									<div id=''class='col-xs-7'style='border:1px none;height:100%;padding:0;'>
+									<div id=''class='col-xs-4'style='border:2px solid black;text-align:right;float:right;background:white;border-radius:10%;padding:1%;'>
+									#{{PKMN.id}}
+									</div>
+									<div id=''class='col-xs-12'style='border:1px none;height:50%;position:relative;top:8%;text-align:center;font-size:13px;'>
+									<div id=''class='col-xs-12'style='padding:5%'>
+
+									</div>
+										<span class=''>{{PKMN.name | uppercase}}
+										</span>
+									</div>
+									</div>
+							</div>
+
+							<!-- DEX DATA AKA RED BUTTON -->
+
+							<div ng-if='whichDisplay == 0' id=''class='col-xs-12 bioData'style='height:75%;border:1px solid black;padding:1%;overflow:auto;'>	
+									<div ng-repeat='entry in currentPKMN.flavor_text_entries'id=''class='col-xs-12'style='border:2px solid black;height:auto;padding:0;margin-top:2px;margin-bottom:4px;'>
+										<div id=''class=''style='border:2px solid white;height:100%;background:white;padding:0;'>
+											<div id=''class='col-xs-12'style='border-bottom:2px solid black;background:inherit;'>
+												{{entry.flavor_text}}
+
+											</div>
+											<div id=''class='col-xs-12'style='background:white;'>
+												<div id=''class='col-xs-6'style='background:inherit;height:25%;'>
+											Language in : {{entry.language.name | changeLang}}
+											</div>
+
+											<div id=''class='col-xs-6'style='background:inherit;height:100%;'>
+											From: {{entry.version.name | uppercase}}
+
+
+											</div>
+
+											</div>
+
+										</div>
+
+
+									</div>
+
+
+
+
+							</div>
+							<!-- END -->
+
+
+							<!-- STATS DATA AKA GREEN BUTTON -->
+
+							<div ng-if='whichDisplay == 1'id=''class='col-xs-12 statData'style='height:75%;border:1px solid black;padding:1%;overflow:auto;'>	<div id=''class='col-xs-12' style='height:28%;padding:0;'>
+									<div id=''class='col-xs-3 col-xs-offset-1'style='border:2px solid black;height:100%;padding:0;background-color:white;margin-right:2px;'>
+										<div id=''class='col-xs-12'style='border-bottom:3px solid black;'>
+										Height
+										</div>
+										<div id=''class='col-xs-12 'style='border:1px none'>
+										<ng-cloak>{{PKMN.height | weight }}</ng-cloak> m
+
+										</div>
+
+
+									</div>
+
+
+									<div id=''class='col-xs-3'style='border:2px solid black;height:100%;padding:0;background-color:white;margin-right:3px;'>
+										<div id=''class='col-xs-12'style='border-bottom:3px solid black;'>
+										Weight
+										</div>
+										<div id=''class='col-xs-12 'style='border:1px none'>
+										<ng-cloak>{{PKMN.weight | weight }} Kg</ng-cloak>
+
+										</div>
+										
+
+									</div>
+
+
+
+									<div id=''class='col-xs-4'style='border:2px solid black;height:100%;padding:0;background-color:white;'>
+										<div id=''class='col-xs-12'style='border-bottom:3px solid black;'>
+										Type
+										</div>
+										<div id=''class='col-xs-12 'style='border:1px none;padding:0;'>
+											<div id=''class='col-xs-12'style=''ng-repeat='type in PKMN.types'>
+											{{type.type.name | uppercase}}
+
+											</div>
+										</div>
+										
+
+									</div>
+								</div>
+
+								<div id=''class='col-xs-12'style='height:20%;border:3px solid black;background:white;text-align:center;margin-bottom:3px;'>
+									<div id=''class='col-xs-12'style='border-bottom:3px solid black;'>
+									Abilities
+
+									</div>
+									<div ng-repeat='abil in PKMN.abilities'id=''class='col-xs-4'style='border:1px none'>
+											{{abil.ability.name}}
+									</div>
+
+
+								</div>
+
+
+								<div id=''class='col-xs-12'style='border:3px solid black;background:white;padding:0;'>
+									<div id=''class='col-xs-12'style='border-bottom:3px solid black;'>
+									Base Stats
+
+									</div>
+									<div id=''class='col-xs-12'style='padding:0;font-size:11px;'ng-repeat='stats in PKMN.stats'>
+										<span class='col-xs-6'>{{stats.stat.name | uppercase}}</span><span class='col-xs-4' style='float:right;'>{{stats.base_stat}}
+									</div>
+
+
+								</div>
+
+							</div>
+
+
+
+							<!-- END -->
+
+							<!-- MOVES DATA AKA BLUE BUTTON -->
+							<div ng-if='whichDisplay == 2' id=''class='col-xs-12 moveData'style='height:75%;border:1px solid black;padding:1%;overflow:auto;'>	<div id=''class='col-xs-6'style='height:51%;margin-bottom:5px;' ng-repeat='moves in PKMN.moves'>		
+
+									<div id=''class='col-xs-12'style='border:3px solid black;
+															background-color:white;height:100%;
+															padding:0;margin-right:2px;'>
+
+
+										<div id=''class='col-xs-12'style='border-bottom:3px solid black;'>
+										<span style='font-size:10px;'>Learned by :</span>
+										{{moves.version_group_details[0].move_learn_method.name | uppercase}}
+										</div>
+										<div id=''class='col-xs-12'style='height:50%;border-bottom:3px solid black;font-size:12px;text-align:center;padding:0;'>
+										<div id=''class='col-xs-12'style='padding:10%;'>
+
+										</div>
+											{{moves.move.name | uppercase}}
+										</div>
+
+										<div id=''class='col-xs-12'style=''>
+										At lvl: {{moves.version_group_details[0].level_learned_at}}
+
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+
+
+							<!-- End -->
+
+
+							<!-- ETC DATA AKA YELLOW BUTTON -->
+							<div ng-if='whichDisplay == 3'id=''class='col-xs-12 etcData'style='height:75%;border:1px solid black;padding:1%;overflow:auto;'>
+
+
+
+								<div id=''class='col-xs-12'style='height:auto;margin-bottom:5px;background:white;border:3px solid black;padding:0;'>	
+									<div id=''class='col-xs-12'style='border-bottom:3px solid black;'>
+									Names in different languages
+									</div>
+									<div ng-repeat='name in currentPKMN.names'id=''class='col-xs-12'style='height:25%;border:1px solid black;'>
+									<div id=''class='col-xs-6'>{{name.name}}</div>
+									<div id=''class='col-xs-6'>In: {{name.language.name | changeLang}}</div>
+
+									</div>	
+
+									
+								</div>
+
+
+							</div>
+
+
+							<!-- END -->
+					</div>
+				</div>
+
+
+
+
+
+
+
+			</div>
+
+
+
+
+</div>

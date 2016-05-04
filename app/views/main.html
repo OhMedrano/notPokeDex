@@ -1,0 +1,111 @@
+<div id=''class=''style=''>
+    <!-- DESKTOP -->
+    <div id=''class='col-md-12 hidden-sm hidden-xs'style='height:90vh;overflow:auto;border:1px solid black;'>
+    
+      <div id=''class=''style='overflow:auto;height:40vh;border:1px solid black;'>
+         <div id='' style='padding:3%;'>
+         </div>
+            <ul style='list-style:none;display:inline-flex'>
+              <li id=''class='pokeIndexMain righteous'ng-repeat='pokemon in pokemons.results | limitTo:649'
+            style='border:6px solid grey;
+
+                   height:14vh;
+                   width:33vh;
+                   border-radius:3%;
+                  transform: skew(30deg,-30deg);
+                  
+                  padding:4px;
+                  position:relative;
+                '><a href='#/PKMN/{{$index+1}}' style='color:black;'>
+          
+                <div id=''class='col-md-1'style='float:left;
+                                                 border:1px solid black;
+                                                 width:2vh;
+                                                 height:3vh;
+                                                 border-radius:100%;
+                                                 position:relative;
+                                                 background-color:white;'>
+                                  <span style='position:relative;
+                                                right:11px;
+                                                top:3px;
+                                                text-align:center;'>{{$index+1}}</span>
+
+                </div>
+
+                <div id=''class='col-md-12'>
+                </div>
+          <div id=''class='col-md-8'style='border:1px solid black;;
+                                          position:relative;
+                                          top:15%;
+                                          float:left;
+                                          text-align:center;
+                                          background-color:white;
+
+                        '>
+                        <div id=''class='col-md-12'style='padding:4%'>
+                        </div>
+                {{pokemon.name|uppercase}}
+
+                <br><br>
+
+          </div>
+            <div id=''class='col-md-3' style='float:right;padding:1%;
+                                              border:1px solid black;
+                                              height:8vh;
+                                              background-color:white;
+                                              '>  
+                  <img src='http://159.203.107.182:3000/img/PKMN/{{$index+1}}.png'style='height:111%'/>
+
+
+
+            </div>
+
+            </a>
+            </li>
+            </ul>
+
+          </div>
+
+      </div>
+
+
+    </div>
+
+    <!-- MOBILE -->
+    <div id=''class='col-xs-12 col-sm-12 hidden-md hidden-lg'style='height:63vh;overflow:auto;border:1px solid black;padding:0;'>
+          <div id=''class='col-xs-12 col-sm-12'style='border:1px solid black;height:95%;overflow:auto;'>
+                <div ng-repeat='pokemon in pokemons.results | limitTo: 649'id=''class='col-xs-12 col-sm-12 pokeIndexMain'style='border:3px solid black;height:10vh;border-radius:6px;padding:0;margin-top:5px;margin-bottom:3px;'><a href='#/PKMN/{{$index+1}}' style='color:black'>
+                     <div id=''class=''style='border:3px solid white;height:100%;border-radius:4px;padding:0;'>
+                        <div id=''class='col-xs-3'style='float:left;padding:0;border:1px solid black;height:100%;background:url(http://159.203.107.182:3000/img/PKMN/{{$index+1}}.png) no-repeat; background-size:95% 95%;'>
+                            
+                        </div>
+                        <div id=''class='col-xs-9 righteous'style='border:1px solid black;height:100%;'>
+                          <div id=''class='col-xs-3'style='border:1px solid black;float:right;text-align:right;border-radius:10px;background:white;padding:1%;'>
+                              #{{$index+1}}
+                          </div>
+                            <div id=''class='col-xs-12'style='font-size:12px;'>
+                          {{pokemon.name | uppercase}}
+                          </div>
+
+                        </div>
+
+                    </div>
+
+                    </a>
+                </div>
+                <div id=''class='col-xs-12'style='padding:2%;'>
+
+                </div>
+          </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+</div>
